@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  airbyte-server:
+    image: airbyte/airbyte:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/airbyte
+      - AIRBYTE_CONFIG_DIR=/workspace
+    volumes:
+      - ./workspace:/workspace
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=airbyte
+      - POSTGRES_USER=airbyte
+      - POSTGRES_PASSWORD=airbyte
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
