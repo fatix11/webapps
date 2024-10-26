@@ -1,0 +1,56 @@
+[2024-10-22T05:46:00.351+0000] {processor.py:157} INFO - Started process (PID=26395) to work on /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T05:46:00.429+0000] {processor.py:829} INFO - Processing file /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py for tasks to queue
+[2024-10-22T05:46:00.448+0000] {logging_mixin.py:151} INFO - [2024-10-22T05:46:00.444+0000] {dagbag.py:536} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T05:46:30.873+0000] {logging_mixin.py:151} INFO - [2024-10-22T05:46:30.624+0000] {timeout.py:68} ERROR - Process timed out, PID: 26395
+[2024-10-22T05:46:31.771+0000] {logging_mixin.py:151} INFO - [2024-10-22T05:46:30.910+0000] {dagbag.py:346} ERROR - Failed to import: /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 342, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py", line 32, in <module>
+    from pandas.tseries.holiday import USFederalHolidayCalendar
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/__init__.py", line 48, in <module>
+    from pandas.core.api import (
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/api.py", line 47, in <module>
+    from pandas.core.groupby import (
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/groupby/__init__.py", line 1, in <module>
+    from pandas.core.groupby.generic import (
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/groupby/generic.py", line 77, in <module>
+    from pandas.core.frame import DataFrame
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 490, in <module>
+    class DataFrame(NDFrame, OpsMixin):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 8564, in DataFrame
+    def pivot_table(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/util/_decorators.py", line 485, in __call__
+    func.__doc__ = dedent(self.join.join(docitems))
+  File "/usr/local/lib/python3.8/textwrap.py", line 430, in dedent
+    text = _whitespace_only_re.sub('', text)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://airflow.apache.org/docs/apache-airflow/2.7.2/best-practices.html#top-level-python-code
+* https://airflow.apache.org/docs/apache-airflow/2.7.2/best-practices.html#reducing-dag-complexity, PID: 26395
+[2024-10-22T05:46:31.792+0000] {processor.py:841} WARNING - No viable dags retrieved from /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T05:46:32.712+0000] {processor.py:179} INFO - Processing /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py took 32.464 seconds
+[2024-10-22T05:54:54.431+0000] {processor.py:157} INFO - Started process (PID=26564) to work on /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T05:54:54.455+0000] {processor.py:829} INFO - Processing file /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py for tasks to queue
+[2024-10-22T05:54:54.458+0000] {logging_mixin.py:151} INFO - [2024-10-22T05:54:54.457+0000] {dagbag.py:536} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T05:55:42.974+0000] {logging_mixin.py:151} INFO - [2024-10-22T05:55:42.742+0000] {timeout.py:68} ERROR - Process timed out, PID: 26564
+[2024-10-22T05:55:43.097+0000] {logging_mixin.py:151} WARNING - Exception ignored in: <function _collection_gced at 0x7fea20644ee0>
+[2024-10-22T05:55:43.126+0000] {logging_mixin.py:151} WARNING - Traceback (most recent call last):
+[2024-10-22T05:55:43.141+0000] {logging_mixin.py:151} WARNING -   File "/home/airflow/.local/lib/python3.8/site-packages/sqlalchemy/event/registry.py", line 53, in _collection_gced
+[2024-10-22T05:55:43.224+0000] {logging_mixin.py:151} WARNING -     def _collection_gced(ref):
+[2024-10-22T05:55:43.254+0000] {logging_mixin.py:151} WARNING -   File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+[2024-10-22T05:55:43.270+0000] {logging_mixin.py:151} WARNING -     raise AirflowTaskTimeout(self.error_message)
+[2024-10-22T05:55:43.300+0000] {logging_mixin.py:151} WARNING - airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://airflow.apache.org/docs/apache-airflow/2.7.2/best-practices.html#top-level-python-code
+* https://airflow.apache.org/docs/apache-airflow/2.7.2/best-practices.html#reducing-dag-complexity, PID: 26564
+[2024-10-22T06:02:44.414+0000] {processor.py:157} INFO - Started process (PID=26719) to work on /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T06:02:44.439+0000] {processor.py:829} INFO - Processing file /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py for tasks to queue
+[2024-10-22T06:02:44.443+0000] {logging_mixin.py:151} INFO - [2024-10-22T06:02:44.442+0000] {dagbag.py:536} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T06:19:31.542+0000] {processor.py:157} INFO - Started process (PID=26896) to work on /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
+[2024-10-22T06:19:31.556+0000] {processor.py:829} INFO - Processing file /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py for tasks to queue
+[2024-10-22T06:19:31.572+0000] {logging_mixin.py:151} INFO - [2024-10-22T06:19:31.571+0000] {dagbag.py:536} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/plugins/workday.py
